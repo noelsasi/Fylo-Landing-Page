@@ -1,0 +1,80 @@
+.quotes {
+  padding-bottom: 200px;
+
+  &-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    max-width: 500px;
+
+    @include breakpoint(large) {
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 1320px;
+      gap: 40px;
+    }
+
+    &:first-child::before {
+      content: url("../images/bg-quotes.png");
+      transform: scale(0.7);
+      width: 27px;
+      height: 18px;
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      z-index: 0;
+
+      @include breakpoint(large) {
+        transform: none;
+        top: 37px;
+        left: 50px;
+        width: 60px;
+        height: 45px;
+      }
+    }
+  }
+
+  .quote {
+    position: relative;
+    z-index: 1;
+    background-color: $testimonialBg;
+    border-radius: 5px;
+    padding: 30px 24px 24px 24px;
+
+    @include breakpoint(large) {
+      padding: 44px 24px 24px 24px;
+    }
+
+    &-text {
+      font-size: 0.6em;
+      margin-bottom: 30px;
+    }
+
+    &-author {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      grid-template-rows: 20px 20px;
+      column-gap: 14px;
+
+      &-image {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 2;
+
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 50%;
+        }
+      }
+
+      &-name {
+        font-size: 0.5em;
+        font-weight: 700;
+      }
+
+      &-title {
+        font-size: 0.5em;
+      }
+    }
+  }
+}

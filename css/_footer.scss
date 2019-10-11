@@ -1,0 +1,117 @@
+.footer {
+  background-color: $footerBlue;
+  font-size: 1rem;
+  padding-top: 200px;
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .container {
+    display: grid;
+    grid-row-gap: 35px;
+    grid-column-gap: 60px;
+    grid-template-columns: 1fr;
+    grid-template-areas: "logo" "address" "contact" "links1" "links2" "social";
+
+    @include breakpoint(large) {
+      grid-template-columns: 3fr 2fr 2fr 2fr auto;
+      grid-template-rows: 60px 1fr;
+      grid-template-areas: "logo logo logo logo logo" "address contact links1 links2 social ";
+    }
+  }
+
+  &-logo {
+    @include breakpoint(large) {
+      grid-area: logo;
+    }
+  }
+
+  &-address {
+    grid-area: address;
+    display: flex;
+
+    svg {
+      flex: 0 0 13px;
+      margin-top: 3px;
+      margin-right: 20px;
+    }
+  }
+
+  &-contact {
+    grid-area: contact;
+
+    @include breakpoint(large) {
+      justify-self: right;
+    }
+
+    a {
+      font-size: 0.875rem;
+    }
+    &-phone,
+    &-email {
+      display: flex;
+
+      svg {
+        margin-right: 20px;
+      }
+    }
+
+    &-phone {
+      margin-bottom: 20px;
+      svg {
+        width: 18px;
+      }
+    }
+
+    &-email {
+      svg {
+        width: 20px;
+      }
+    }
+  }
+
+  &-links1,
+  &-links2 {
+    a {
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+
+  &-links1 {
+    grid-area: links1;
+
+    @include breakpoint(large) {
+      justify-self: right;
+    }
+  }
+
+  &-links2 {
+    grid-area: links2;
+  }
+
+  &-social {
+    grid-area: social;
+    justify-self: center;
+
+    @include breakpoint(medium) {
+      justify-self: start;
+    }
+    svg {
+      height: 35px;
+      width: 35px;
+      padding: 7px;
+      border: 1px solid white;
+      border-radius: 50%;
+      fill: #ffffff;
+      margin-right: 16px;
+      transition: all 150ms ease-in-out;
+
+      &:hover {
+        background-color: #fff;
+        fill: $footerBlue;
+      }
+    }
+  }
+}
